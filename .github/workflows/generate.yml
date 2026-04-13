@@ -2,7 +2,7 @@ name: Generate Proto Code
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   generate:
@@ -57,5 +57,5 @@ jobs:
           destination-github-username: AcidPlant
           destination-repository-name: Generated-Code
           user-email: 'acidplayer200775@gmail.com'
-          target-branch: master
+          target-branch: main
           commit-message: "chore: regenerate pb.go from commit ${{ github.sha }}"
