@@ -1,4 +1,4 @@
-name: Generate Proto Code
+name: Generate Proto Code.
 
 on:
   push:
