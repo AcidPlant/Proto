@@ -3,7 +3,7 @@ name: Generate Proto Code.
 on:
   push:
     branches: [main]
-
+  workflow_dispatch:
 jobs:
   generate:
     runs-on: ubuntu-latest
