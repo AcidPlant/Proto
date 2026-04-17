@@ -37,7 +37,7 @@ jobs:
         run: |
           cd gen
           cat > go.mod << 'EOF'
-          module github.com/AcidPlant/Generated-Code
+          module github.com/AcidPlant/generated-code
 
           go 1.22
 
@@ -55,7 +55,7 @@ jobs:
         with:
           source-directory: gen
           destination-github-username: AcidPlant
-          destination-repository-name: Generated-Code
+          destination-repository-name: generated-code
           user-email: 'acidplayer200775@gmail.com'
           target-branch: main
           commit-message: "chore: regenerate pb.go from commit ${{ github.sha }}"

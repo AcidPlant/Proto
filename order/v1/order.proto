@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package order.v1;
 
-option go_package = "github.com/AcidPlant/Generated-Code/order/v1;orderv1";
+option go_package = "github.com/AcidPlant/generated-code/order/v1;orderv1";
 
 service OrderService {
   rpc SubscribeToOrderUpdates(OrderRequest) returns (stream OrderStatusUpdate);
