@@ -2,12 +2,13 @@ syntax = "proto3";
 
 package payment.v1;
 
-option go_package = "github.com/AcidPlant/Generated-Code/payment/v1;paymentv1";
+option go_package = "github.com/AcidPlant/generated-code/payment/v1;paymentv1";
 
 import "google/protobuf/timestamp.proto";
 
 service PaymentService {
-  rpc ProcessPayment(PaymentRequest) returns (PaymentResponse);
+  rpc ProcessPayment(PaymentRequest)   returns (PaymentResponse);
+  rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse);
 }
 
 message PaymentRequest {
@@ -17,6 +18,23 @@ message PaymentRequest {
 
 message PaymentResponse {
   string                    transaction_id = 1;
-  string                    status         = 2; // Authorized or Declined
+  string                    status         = 2; // "Authorized" or "Declined"
   google.protobuf.Timestamp processed_at   = 3;
+}
+
+message ListPaymentsRequest {
+  int64 min_amount = 1; // in cents, 0 = unlimited
+  int64 max_amount = 2; // in cents, 0 = unlimited
+}
+
+message ListPaymentsResponse {
+  repeated PaymentItem payments = 1;
+}
+
+message PaymentItem {
+  string id             = 1;
+  string order_id       = 2;
+  string transaction_id = 3;
+  int64  amount         = 4;
+  string status         = 5;
 }
